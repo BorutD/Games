@@ -1,0 +1,9 @@
+{
+	"strings": {
+		"title": "Memory game",
+		"instructions": "Instructions",
+		"settings": "Settings",
+		"btnHome": "Home",
+		"btnPlay": "Play"
+	}
+}
