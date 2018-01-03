@@ -11,6 +11,7 @@ var Game = {
 		tileGroup = game.add.group();
 
 
+		var id = 0;
 		for (var i = 0; i < 4; i++) {
 			for (var j = 0; j < 4; j++) {
 				var tilesGraphics = game.add.graphics(300 + 100 * i, 200 + 100 * j);
@@ -22,22 +23,17 @@ var Game = {
 				tilesGraphics.drawRect(0, 0, 95, 95);
 				tilesGraphics.inputEnabled = true;
 				tilesGraphics.input.useHandCursor = true;
-				
+
 				var spotIndex = (i == 0 ? String(j) : String(i * 1000 + j))
 				tilesGraphics.data["spotIndex"] = spotIndex;
-				tilesGraphics.events.onInputDown.add(this.tileClicked, [spotIndex]);
+				tilesGraphics.events.onInputDown.add(this.tileClicked, [spotIndex, id]);
+				id++;
 			}
 		}
 	},
 
 	tileClicked: function () {
-		console.log("Tile clicked ", this[0]);
-		// console.log(tileGroup.children);
-	},
-
-	spotIndexToSpot: function () {
-		// From 3 to 12.
-		// From 2001 to 6.
-		// From 2000 to 3
+		tileGroup.children[this[1]].alpha = 0;
+		console.log(tileGroup.children);
 	}
 };
