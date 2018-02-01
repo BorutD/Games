@@ -18,8 +18,8 @@ class TicTacToeGame {
 		this.ctx.fillStyle = "#D6E5FF";
 		this.ctx.fillRect(0, 0, this.game.width, this.game.height);
 
-		this.drawGameLayout();
-		// this.drawGameLayout2(this.game.width / 2, this.game.height / 2, 400, { x: 0.5, y: 0.5 });
+		// this.drawGameLayout();
+		this.drawGameLayout2(this.game.width / 2, this.game.height / 2, 400, { x: 0.5, y: 0.5 });
 	}
 
 	private drawGameLayout2(x: number, y: number, width: number, anchor?: Anchor) {
@@ -53,10 +53,10 @@ class TicTacToeGame {
 		}
 	}
 
-	private handleClick(e) {
-		var position = this.getMousePosition(e);
-
-		console.log(position.x, position.y);
+	private handleClick(e: MouseEvent) {
+		var x = e.clientX;
+		var y = e.clientY;
+		var coords = "X coords: " + x + ", Y coords: " + y;
 	}
 
 	private getMousePosition(event: any): Object {

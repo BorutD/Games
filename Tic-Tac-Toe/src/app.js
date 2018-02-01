@@ -12,8 +12,8 @@ var TicTacToeGame = (function () {
         this.game.height = document.getElementById('canvas').height;
         this.ctx.fillStyle = "#D6E5FF";
         this.ctx.fillRect(0, 0, this.game.width, this.game.height);
-        this.drawGameLayout();
-        // this.drawGameLayout2(this.game.width / 2, this.game.height / 2, 400, { x: 0.5, y: 0.5 });
+        // this.drawGameLayout();
+        this.drawGameLayout2(this.game.width / 2, this.game.height / 2, 400, { x: 0.5, y: 0.5 });
     }
     TicTacToeGame.prototype.drawGameLayout2 = function (x, y, width, anchor) {
         if (anchor) {
@@ -41,8 +41,9 @@ var TicTacToeGame = (function () {
         }
     };
     TicTacToeGame.prototype.handleClick = function (e) {
-        var position = this.getMousePosition(e);
-        console.log(position.x, position.y);
+        var x = e.clientX;
+        var y = e.clientY;
+        var coords = "X coords: " + x + ", Y coords: " + y;
     };
     TicTacToeGame.prototype.getMousePosition = function (event) {
         var rect = this.canvas.getBoundingClientRect();
